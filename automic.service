@@ -1,0 +1,15 @@
+[Unit]
+Description=Automic Service Manager
+After=syslog.target network.target
+
+[Service]
+Type=forking
+PIDFile=/opt/ae/ServiceManager/bin/automicsm.pid
+ExecStart=/opt/ae/ServiceManager/bin/smgr start
+ExecStop=/opt/ae/ServiceManager/bin/smgr stop
+
+User=ae
+Group=ae
+
+[Install]
+WantedBy=multi-user.target
